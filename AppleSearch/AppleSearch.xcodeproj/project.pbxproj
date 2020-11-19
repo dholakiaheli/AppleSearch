@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68FD21422566EC7800F5C989 /* AppStoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FD21412566EC7800F5C989 /* AppStoreItem.swift */; };
+		68FD21462566F2EB00F5C989 /* AppStoreItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FD21452566F2EB00F5C989 /* AppStoreItemController.swift */; };
+		68FD214A2566F4AB00F5C989 /* AppStoreItemError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FD21492566F4AB00F5C989 /* AppStoreItemError.swift */; };
+		68FD214E2567123A00F5C989 /* ItemListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FD214D2567123A00F5C989 /* ItemListTableViewController.swift */; };
+		68FD21522567125600F5C989 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FD21512567125600F5C989 /* ItemTableViewCell.swift */; };
 		7E9D8A1025668FDA0054FC2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D8A0F25668FDA0054FC2A /* AppDelegate.swift */; };
 		7E9D8A1225668FDA0054FC2A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D8A1125668FDA0054FC2A /* SceneDelegate.swift */; };
 		7E9D8A1725668FDA0054FC2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E9D8A1525668FDA0054FC2A /* Main.storyboard */; };
@@ -15,6 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		68FD21412566EC7800F5C989 /* AppStoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreItem.swift; sourceTree = "<group>"; };
+		68FD21452566F2EB00F5C989 /* AppStoreItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreItemController.swift; sourceTree = "<group>"; };
+		68FD21492566F4AB00F5C989 /* AppStoreItemError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreItemError.swift; sourceTree = "<group>"; };
+		68FD214D2567123A00F5C989 /* ItemListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListTableViewController.swift; sourceTree = "<group>"; };
+		68FD21512567125600F5C989 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		7E9D8A0C25668FDA0054FC2A /* AppleSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E9D8A0F25668FDA0054FC2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E9D8A1125668FDA0054FC2A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +45,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		68FD21402566EBB700F5C989 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				68FD21412566EC7800F5C989 /* AppStoreItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		68FD21442566F2CF00F5C989 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				68FD21452566F2EB00F5C989 /* AppStoreItemController.swift */,
+			);
+			path = "Model Controller";
+			sourceTree = "<group>";
+		};
+		68FD21482566F49400F5C989 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				68FD21492566F4AB00F5C989 /* AppStoreItemError.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		68FD214C2567121300F5C989 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				68FD214D2567123A00F5C989 /* ItemListTableViewController.swift */,
+				68FD21512567125600F5C989 /* ItemTableViewCell.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
 		7E9D8A0325668FDA0054FC2A = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +97,10 @@
 		7E9D8A0E25668FDA0054FC2A /* AppleSearch */ = {
 			isa = PBXGroup;
 			children = (
+				68FD214C2567121300F5C989 /* View Controller */,
+				68FD21482566F49400F5C989 /* Helpers */,
+				68FD21442566F2CF00F5C989 /* Model Controller */,
+				68FD21402566EBB700F5C989 /* Model */,
 				7E9D8A2425668FE50054FC2A /* Resources */,
 				7E9D8A2725668FFB0054FC2A /* Storyboards */,
 			);
@@ -150,8 +197,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68FD21462566F2EB00F5C989 /* AppStoreItemController.swift in Sources */,
 				7E9D8A1025668FDA0054FC2A /* AppDelegate.swift in Sources */,
+				68FD214E2567123A00F5C989 /* ItemListTableViewController.swift in Sources */,
 				7E9D8A1225668FDA0054FC2A /* SceneDelegate.swift in Sources */,
+				68FD21422566EC7800F5C989 /* AppStoreItem.swift in Sources */,
+				68FD21522567125600F5C989 /* ItemTableViewCell.swift in Sources */,
+				68FD214A2566F4AB00F5C989 /* AppStoreItemError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,8 +351,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = MB9J78CVZ9;
 				INFOPLIST_FILE = AppleSearch/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -318,8 +371,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = MB9J78CVZ9;
 				INFOPLIST_FILE = AppleSearch/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
