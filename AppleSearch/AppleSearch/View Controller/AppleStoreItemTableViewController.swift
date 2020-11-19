@@ -23,7 +23,6 @@ class AppleStoreItemTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return appleStoreItems.count
     }
@@ -38,17 +37,25 @@ class AppleStoreItemTableViewController: UITableViewController {
     }
 }
 
+// MARK: - Extensions
 extension AppleStoreItemTableViewController: UISearchBarDelegate {
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = itemSearchBar.text, !searchText.isEmpty else { return }
         
         let itemType: AppleStoreItem.ItemType = (itemSegmentedControl.selectedSegmentIndex == 0) ? .song : .app
         
-        AppleStoreItemController.getItems(type: itemType, searchText: searchText) { (items) in
-            self.appleStoreItems = items
+        AppleStoreItemController.getItems(type: itemType, searchText: searchText) { (result) in
+            
             DispatchQueue.main.async {
-                self.tableView.reloadData()
-                self.itemSearchBar.text = ""
+                switch result {
+                case .success(let items):
+                    self.appleStoreItems = items
+                    self.tableView.reloadData()
+                    self.itemSearchBar.text = ""
+                case .failure(let error):
+                    self.presentErrorToUser(localizedError: error)
+                }
             }
         }
     }

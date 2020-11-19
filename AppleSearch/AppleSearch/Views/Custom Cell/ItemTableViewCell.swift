@@ -30,13 +30,14 @@ class ItemTableViewCell: UITableViewCell {
         //This prevents an old image from displaying if the current item has no image, as well as flickering of images if the user were to scroll through the tableView quickly.
         itemImageView.image = nil
         
-        AppleStoreItemController.getImageFor(item: item) { (image) in
-            if let image = image {
-                DispatchQueue.main.async {
+        AppleStoreItemController.getImageFor(item: item) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let image):
                     self.itemImageView.image = image
+                case .failure(let error):
+                    print(error.errorDescription)
                 }
-            } else {
-                print("Image was nil")
             }
         }
     }

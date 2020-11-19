@@ -16,6 +16,8 @@
 		7E9D8A332566918B0054FC2A /* AppleStoreItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D8A322566918B0054FC2A /* AppleStoreItemController.swift */; };
 		7E9D8A372566925F0054FC2A /* AppleStoreItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D8A362566925F0054FC2A /* AppleStoreItemTableViewController.swift */; };
 		7E9D8A3C2566942C0054FC2A /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D8A3B2566942C0054FC2A /* ItemTableViewCell.swift */; };
+		7E9D8A40256698A10054FC2A /* AppleStoreItemError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D8A3F256698A10054FC2A /* AppleStoreItemError.swift */; };
+		7E9D8A4625669C760054FC2A /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9D8A4525669C760054FC2A /* UIViewControllerExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		7E9D8A322566918B0054FC2A /* AppleStoreItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleStoreItemController.swift; sourceTree = "<group>"; };
 		7E9D8A362566925F0054FC2A /* AppleStoreItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleStoreItemTableViewController.swift; sourceTree = "<group>"; };
 		7E9D8A3B2566942C0054FC2A /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		7E9D8A3F256698A10054FC2A /* AppleStoreItemError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleStoreItemError.swift; sourceTree = "<group>"; };
+		7E9D8A4525669C760054FC2A /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,7 @@
 		7E9D8A0E25668FDA0054FC2A /* AppleSearch */ = {
 			isa = PBXGroup;
 			children = (
+				7E9D8A3E2566988E0054FC2A /* Helpers & Extensions */,
 				7E9D8A39256694100054FC2A /* Views */,
 				7E9D8A35256691FA0054FC2A /* View Controller */,
 				7E9D8A31256691750054FC2A /* Model Controller */,
@@ -130,6 +135,15 @@
 				7E9D8A3B2566942C0054FC2A /* ItemTableViewCell.swift */,
 			);
 			path = "Custom Cell";
+			sourceTree = "<group>";
+		};
+		7E9D8A3E2566988E0054FC2A /* Helpers & Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7E9D8A3F256698A10054FC2A /* AppleStoreItemError.swift */,
+				7E9D8A4525669C760054FC2A /* UIViewControllerExtensions.swift */,
+			);
+			path = "Helpers & Extensions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,7 +218,9 @@
 			files = (
 				7E9D8A2F256690F70054FC2A /* AppleStoreItem.swift in Sources */,
 				7E9D8A1025668FDA0054FC2A /* AppDelegate.swift in Sources */,
+				7E9D8A4625669C760054FC2A /* UIViewControllerExtensions.swift in Sources */,
 				7E9D8A1225668FDA0054FC2A /* SceneDelegate.swift in Sources */,
+				7E9D8A40256698A10054FC2A /* AppleStoreItemError.swift in Sources */,
 				7E9D8A332566918B0054FC2A /* AppleStoreItemController.swift in Sources */,
 				7E9D8A3C2566942C0054FC2A /* ItemTableViewCell.swift in Sources */,
 				7E9D8A372566925F0054FC2A /* AppleStoreItemTableViewController.swift in Sources */,

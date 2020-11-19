@@ -9,12 +9,11 @@ import UIKit
 
 class AppleStoreItemController {
     
-    static func getItems(type: AppleStoreItem.ItemType, searchText: String, completion: @escaping (([AppleStoreItem]) -> Void)) {
+    static func getItems(type: AppleStoreItem.ItemType, searchText: String, completion: @escaping ((Result<[AppleStoreItem], AppleStoreItemError>) -> Void)) {
         
         let baseURL = URL(string: "https://itunes.apple.com/search")!
         guard var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true) else {
-            completion([])
-            return
+            return completion(.failure(.unableToUnwrap))
         }
         
         let searchTermQuery = URLQueryItem(name: "term", value: searchText)
@@ -22,74 +21,68 @@ class AppleStoreItemController {
         components.queryItems = [searchTermQuery, entityQuery]
         
         guard let url = components.url else {
-            print("Our query items are giving us some trouble.")
-            completion([])
-            return
+            return completion(.failure(.unableToUnwrap))
         }
         
         URLSession.shared.dataTask(with: url) { (data, _, error) in
             if let error = error {
                 print("Error getting stuff back from apple. \(error.localizedDescription)")
-                completion([])
-                return
+                return completion(.failure(.apiError(error)))
             }
             
             guard let data = data else {
                 print("No data was received from apple.")
-                completion([])
-                return
+                return completion(.failure(.noData))
             }
             
             guard let topLevelJSON = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String:Any] else {
                 print("Could not convert data into JSON.")
-                completion([])
-                return
+                return completion(.failure(.unableToDecode))
             }
             
             // Here is where we dive deeper.
             guard let appleStoreItemDictionaries = topLevelJSON["results"] as? [[String:Any]] else {
-                print("Could not could dictionaries from the results.")
-                completion([])
-                return
+                print("Could not access the dictionaries from the results level.")
+                return completion(.failure(.unableToDecode))
             }
             
-            var allItems: [AppleStoreItem] = []
+            var fetchedItems: [AppleStoreItem] = []
             
             for itemDictionary in appleStoreItemDictionaries {
                 if let newItem = AppleStoreItem(itemType: type, dict: itemDictionary) {
-                    allItems.append(newItem)
+                    fetchedItems.append(newItem)
                 }
             }
             
-            completion(allItems)
+            completion(.success(fetchedItems))
             
             }.resume()
     }
     
-    static func getImageFor(item: AppleStoreItem, completion: @escaping ((UIImage?) -> Void)) {
+    static func getImageFor(item: AppleStoreItem, completion: @escaping ((Result<UIImage, AppleStoreItemError>) -> Void)) {
         
-        guard let imageURLAsString = item.imageURL,
-            let url = URL(string: imageURLAsString) else {
-                print("Item did not have an image that could be made into a url.")
-                completion(nil)
-                return
+        guard let imageURLAsString = item.imageURL, let url = URL(string: imageURLAsString) else {
+            print("Item did not have an image that could be made into a url.")
+            return completion(.failure(.invalidURL))
         }
         
         URLSession.shared.dataTask(with: url) { (data, _, error) in
             if let error = error {
                 print("Error \(error)")
-                completion(nil)
-                return
+                return completion(.failure(.apiError(error)))
             }
             
             guard let data = data else {
                 print("Could not get data from the image.")
-                completion(nil)
-                return
+                return completion(.failure(.noData))
             }
             
-            let image = UIImage(data: data)
-            completion(image)
+            guard let image = UIImage(data: data) else {
+                print("Unable to convert our image into data.")
+                return completion(.failure(.unableToDecode))
+            }
+            
+            completion(.success(image))
             
             }.resume()
     }
